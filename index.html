@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #first_div{
+            border:black solid 1px;
+        }
+        #second_div{
+            border:black solid 1px;
+        }
+        #third_div{
+            border:black solid 1px;
+            margin-top: 20px;
+            
+            height: 60px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="first_div" align="center">
+        <input type="text" id="task" placeholder="enter the task">
+        <br> <br>
+        <select id="Prioritie">
+            <option value="">--select--</option>
+            <option id="high" value="High" name="First">High</option>
+            <option  id="2" value="Medium" name="second">Medium</option>
+            <option  id="3" value="Low" name="third">Low</option>
+        </select><br><br>
+       <button onclick="submit()">submit</button>
+    </div>
+    <div style="height: 50px;">
+
+    </div>
+    <div id="second_div">
+        <pre> task details:</pre>
+        <pre id="res"></pre>
+    </div>
+    <div style="height: 50px;">
+
+    </div>
+    <div id="third_div" align="center">
+       
+        <button type="button" id="red" style="background-color: red; padding: 10px;" onclick="Red()">Red</button>
+        <button type="button" id=" Amber" style="background-color:#FFBF00;  padding: 10px;" onclick="Amber()">Amber</button>
+        <button type="button" id="green" style="background-color:green;  padding: 10px;" onclick="green()" >green</button>
+        <p id="res2"></p>
+    </div>
+
+    <script>
+        const array= [];
+                
+                
+            function submit(){ 
+                var dis1 = document.getElementById("task").value;
+              
+               var dis2 =document.getElementById("Prioritie");               
+               var dis3  = dis2.options[dis2.selectedIndex].text;  
+                         
+                var result=  dis1 +" = "+ dis3;         
+              array.push(result); 
+              
+        if(dis3=="High"){
+           
+          
+            document.getElementById("res").style.color="red";
+        }
+        else if(dis3=="Medium"){
+          
+           document.getElementById("res").style.color="#FFBF00";
+        }
+        else if(dis3=="Low"){
+         
+           document.getElementById("res").style.color="green";
+        }
+         
+              
+               document.getElementById("res").innerHTML = array;
+            
+    }
+            function Red(){
+            
+            
+                     document.getElementById("res2").innerHTML =array ;
+                     document.getElementById("res2").style.color="red";
+           }
+             function Amber(){
+                 document.getElementById("res2").innerHTML =array ;
+                     document.getElementById("res2").style.color="#FFBF00";
+             }   
+             function green(){
+                 document.getElementById("res2").innerhtml =array;
+                 document.getElementById("res2").style.color="green";
+                 
+             }  
+          
+               
+           
+    </script>
+</body>
+</html>
